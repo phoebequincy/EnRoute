@@ -4,7 +4,7 @@ exports.up = function(knex) {
     table.increments()
     table.integer('truck_number').notNullable()
     table.string('type').notNullable()
-    table.integer('care_level').notNullable()
+    table.integer('care_level')
     table.timestamps(true, true)
   })
 }
