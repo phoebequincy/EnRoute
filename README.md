@@ -4,19 +4,19 @@
 
 
 ### Wireframes
-<img src="https://github.com/phoebequincy/onroute/blob/master/onroutewireframe.jpg">
+<a href="https://github.com/phoebequincy/onroute/blob/master/onroutewireframe.jpg"</a>
 
 
 ### A style guide
-<img src="https://github.com/phoebequincy/onroute/blob/master/On%20Route%20Style%20Guide.pdf">
+<a href="https://github.com/phoebequincy/onroute/blob/master/On%20Route%20Style%20Guide.pdf"</a>
 
 
 ### Planning
-<link href="https://trello.com/b/PIQdWpm5/onroute">
+<a href="https://trello.com/b/PIQdWpm5/onroute"</a>
 
 
 ### Schema/ERD for Database
-<img src="https://github.com/phoebequincy/onroute/blob/master/On%20Route%20ERD.pdf">
+<a href="https://github.com/phoebequincy/onroute/blob/master/On%20Route%20ERD.pdf"</a>
 
 ### Server Routes Plan
-<img src="https://github.com/phoebequincy/onroute/blob/master/OnRoute%20-%20Server%20Routes%20Plan.pdf">
+<a href="https://github.com/phoebequincy/onroute/blob/master/OnRoute%20-%20Server%20Routes%20Plan.pdf"</a>
