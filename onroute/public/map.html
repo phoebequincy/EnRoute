@@ -16,16 +16,27 @@
     <div id="map"></div>
     <script>
       function initMap(){
+        var icon = {
+    url: "https://cdn.emojidex.com/emoji/seal/fire.png?1466441570", // url
+    scaledSize: new google.maps.Size(25, 25), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+};
         var options = {
           zoom:15,
           center:{lat:40.0150, lng:-105.2705}
         }
         let map = new google.maps.Map(document.getElementById('map'), options)
 
+      addMarker({lat:40.017500, lng:-105.280622})
+
+      function addMarker (coords){
         let marker = new google.maps.Marker({
-          position:{lat:40.017500, lng:-105.280622},
-          map:map
-        })
+          position:coords,
+          map:map,
+          icon:icon
+          })
+        }
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap"
