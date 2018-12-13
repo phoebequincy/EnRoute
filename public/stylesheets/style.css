@@ -7,6 +7,12 @@ header {
   background-color: #213740;
 }
 
+logo img {
+  width:60%;
+  padding-top:5em;
+  padding-left:50px;
+}
+
 .wrapper {
   display:grid;
   grid-template-rows: 15% 70% 15%;
@@ -16,8 +22,13 @@ header {
 }
 
 footer {
+  padding:3em;
   display:grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
   background-color: #213740;
+}
+
+.footer-menu-item {
+padding:3em 4em;
 }
