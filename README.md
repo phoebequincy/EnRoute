@@ -8,7 +8,7 @@
 
 
 ### A style guide
-<a href="https://github.com/phoebequincy/onroute/blob/master/On%20Route%20Style%20Guide.pdf">Style Guide</a>
+<a href="../planning-docs/OR_style_guide.pdf">Style Guide</a>
 
 
 ### Planning
