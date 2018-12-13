@@ -19,4 +19,4 @@
 <a href="https://github.com/phoebequincy/onroute/blob/master/On%20Route%20ERD.pdf">ERD Schema</a>
 
 ### Server Routes Plan
-<a href="https://github.com/phoebequincy/onroute/blob/master/OnRoute%20-%20Server%20Routes%20Plan.pdf">Server Routes Plan</a>
+<a href="https://docs.google.com/document/d/1bZcj1aQhawh7829aoz125Kpe_sbZJapiBE5g-Tk9ykU/edit#heading=h.ed43hymhoom3">Server Routes Plan</a>
