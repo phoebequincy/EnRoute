@@ -39,4 +39,30 @@ router.post('/', (req, res, next) =>{
     res.status(200).send(newObj)
   })
 })
+
+router.patch('/:id', (req, res, next)=>{
+  const {truck_number, type, care_level} = req.body
+  knex('vehicles')
+    .where('id', req.params.id)
+    .update({truck_number, type, care_level})
+    .returning('*')
+    .then((result)=>{
+      delete result[0].created_at
+      delete result[0].updated_at
+      res.status(200).json(result[0])
+    })
+})
+
+router.delete('/:id', (req, res, next)=>{
+   knex('vehicles')
+    .where('id', req.params.id)
+    .first()
+    .del('*')
+    .then((result)=>{
+      delete result[0].created_at
+      delete result[0].updated_at
+      res.status(200).send(result[0])
+    })
+})
+
 module.exports = router;
