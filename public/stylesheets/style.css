@@ -7,16 +7,16 @@ header {
   background-color: #213740;
 }
 
-logo img {
+/* logo img {
   width:60%;
   padding-top:3.5em;
   padding-left:50px;
-}
+} */
 
 .wrapper {
-  display:grid;
+  /* display:grid;
   grid-template-rows: 12% 76% 12%;
-  grid-gap:0;
+  grid-gap:0; */
   height: 100vh;
   width: 100vw;
 }

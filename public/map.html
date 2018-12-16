@@ -1,5 +1,42 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>EnRoute</title>
+
+    <style media="screen">
+      #map{
+        height:400px;
+        width:100%;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1>EnRoute</h1>
+    <div id="map"></div>
+    <script>
+      function initMap(){
+        var fireIcon = {
+    url: "https://cdn.emojidex.com/emoji/seal/fire.png?1466441570", // url
+    scaledSize: new google.maps.Size(25, 25), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+}
+
+var ambIcon = {
+url: "https://images.emojiterra.com/google/android-pie/512px/1f691.png", // url
+scaledSize: new google.maps.Size(25, 25), // scaled size
+origin: new google.maps.Point(0,0), // origin
+anchor: new google.maps.Point(0, 0) // anchor
+}
+
+        var options = {
+          zoom:15,
+          center:{lat:40.0150, lng:-105.2705}
+        }
+        let map = new google.maps.Map(document.getElementById('map'), options)
 
 <head>
   <meta name="viewport" content="initial-scale=1.0">
