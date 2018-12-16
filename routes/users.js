@@ -1,71 +1,32 @@
 'use strict'
+
 const express = require('express')
 const knex = require('../knex.js')
+const humps = require('humps')
+const bcrypt = require('bcryptjs')
 
-
- // eslint-disable-next-line new-cap
+// eslint-disable-next-line new-cap
 const router = express.Router()
 
- // YOUR CODE HERE
- // get all
-router.get('/', (req, res) => {
-  knex('presents')
-   .then((data) => {
-     res.send(data)
-   })
-})
+// YOUR CODE HERE
+router.post('/users', (req, res) => {
+  const body = humps.decamelizeKeys(req.body)
+  const pw = body.password
+  const hashedpw = bcrypt.hashSync(pw, 1)
 
- // get a user
-router.get('/:id', (req, res, next) => {
-  knex('presents')
-   .select('')
-   .where('id', req.params.id)
-   .then((data) => {
-     res.send(data[0])
-   })
-   .catch((err) => {
-     next(err)
-   })
-})
 
- // update user
-router.post('/', (req, res, next) => {
-  knex('presents')
-   .insert(req.body)
-   .returning('*')
-   .then((data) => {
-     res.send(data)
-   })
-   .catch((err) => {
-     next(err)
-   })
-})
 
- // create a new user
-router.patch('/:id', (req, res, next) => {
-  knex('presents')
-   .where('id', req.params.id)
-   .update(req.body)
-   .returning('*')
-   .then((data) => {
-     res.send(data)
-   })
-   .catch((err) => {
-     next(err)
-   })
-})
+  return knex('users')
+   .insert({
+     id: user[0].id,
+     hashed_password: hashedpw
+   }, '*')
 
-// delete a user
-router.delete('/:id', (req, res, next) => {
-  knex('presents')
-   .where('id', req.params.id)
-   .returning('*')
-   .del()
-   .then((data) => {
-     res.send(data[0])
-   })
-   .catch((err) => {
-     next(err)
+   .then((user) => {
+     res.status(200).json({
+       id: user[0].id,
+       hashed_password: hashedpw
+     })
    })
 })
 
