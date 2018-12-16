@@ -2,11 +2,11 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgresql://localhost:5432/onroute_dev'
+    connection: 'postgresql://localhost:5432/enroute_dev'
   },
   test: {
     client: 'pg',
-    connection: 'postgresql://localhost:5432/onroute_test'
+    connection: 'postgresql://localhost:5432/enroute_test'
   },
   production: {
     client: 'pg',
