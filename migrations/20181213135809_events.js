@@ -4,6 +4,7 @@ exports.up = function(knex) {
     table.increments()
     table.string('location').notNullable()
     table.string('description').notNullable()
+    table.foreign('assigned_amb').references(vehicles.id)
     table.string('date').notNullable()
     table.string('time').notNullable()
     table.timestamps(true, true)
