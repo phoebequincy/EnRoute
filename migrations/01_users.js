@@ -1,7 +1,8 @@
 'use strict'
 exports.up = function(knex) {
   return knex.schema.createTable('users', (table) => {
-    table.increments()
+    table.increments('id')
+    table.string('user_id').notNullable()
     table.string('password').notNullable()
     table.string('role').notNullable()
     table.timestamps(true, true)
