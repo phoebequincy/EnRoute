@@ -5,6 +5,20 @@ const knex = require('../knex.js')
 const router = express.Router();
 
 
+//get event coordinates
+router.post('/group', (req, res, next) => {
+  console.log("req.body.userId: ",req.body.userId)
+    return knex('events')
+    .select('lat','lng')
+    .where('group', req.body.userId)
+    .then(data => {
+      res.status(200).json(data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
 //get all events
 router.get('/', (req, res, next) => {
   return knex('events')
@@ -23,23 +37,7 @@ router.get('/:id', function(req, res, next) {
   })
 })
 
-//get event coordinates
-router.get('/:id', (req, res, next) => {
-    return knex('events')
-    .where('u_id', req.params.id)
-    .join('users', 'events.u_id', 'users_id' )
-    .then(data => {
-      res.send(data)
-    })
-})
 
-router.get('/:id', (req, res, next) => {
-    return knex('events')
-    .where('events.u_id', req.params.id)
-    // .join('users','events.u_id', 'user_id')
-    .then(data => {
-      res.status(200).json(data)
-    })
-})
+
 
 module.exports = router;
