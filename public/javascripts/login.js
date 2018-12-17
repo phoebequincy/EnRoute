@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
         lng: data.event.lng
       }
 
-      res.redirect(200,'../map.html')
+      // res.redirect(200,'../map.html')
     })
   })
 
