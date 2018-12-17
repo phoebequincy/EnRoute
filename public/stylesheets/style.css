@@ -1,99 +1,89 @@
 #map {
-  height:78vh;
-  width: 100%;
+height:78vh;
+width: 100%;
 }
 
 h1 {
-  color: red;
+color: red;
 }
 
 body {
-  flex-direction: column;
-  display: flex;
-  min-height: 100vh;
+flex-direction: column;
+display: flex;
+min-height: 100vh;
 }
 
 header {
-  width: 100%;
-  background-color: #213740;
+width: 100%;
+background-color: #213740;
 }
 
-<<<<<<< HEAD
-#map{
-    media:screen;
-    height:400px;
-    width:100%;
-  }
-
-logo img {
-=======
 /* logo img {
->>>>>>> c7f82ae49308b2ae16bbb235ade5d855a80d4b10
-  width:60%;
-  padding-top:3.5em;
-  padding-left:50px;
+width:60%;
+padding-top:3.5em;
+padding-left:50px;
 } */
 
 
 main {
-   flex: 1 0 auto;
-   width:100vw;
+ flex: 1 0 auto;
+ width:100vw;
 
- }
+}
 
 
- nav .brand-logo {
-   border-left: 0.1rem solid #b6b6b6;
-   bottom:8px;
-   font-family:'Roboto', sans-serif;
-   font-size: 1.25rem;
-   font-weight: 200;
-   letter-spacing: 0.2rem;
-   line-height: 2rem;
-   padding-left: 0.75rem;
-   position: relative;
-   text-transform: uppercase;
- }
- nav .logo-text {
-   padding:0;
- }
+nav .brand-logo {
+ border-left: 0.1rem solid #b6b6b6;
+ bottom:8px;
+ font-family:'Roboto', sans-serif;
+ font-size: 1.25rem;
+ font-weight: 200;
+ letter-spacing: 0.2rem;
+ line-height: 2rem;
+ padding-left: 0.75rem;
+ position: relative;
+ text-transform: uppercase;
+}
+nav .logo-text {
+ padding:0;
+}
 
- nav .logo-png {
-   padding-left: 15px;
-   padding-top: 13px;
-   width: 50px;
- }
+nav .logo-png {
+ padding-left: 15px;
+ padding-top: 13px;
+ width: 50px;
+}
 
- nav ul li {
-   font-size: 1.25rem;
-   font-weight: 400;
-   letter-spacing: 0.2rem;
-   text-transform: uppercase;
- }
+nav ul li {
+ font-size: 1.25rem;
+ font-weight: 400;
+ letter-spacing: 0.2rem;
+ text-transform: uppercase;
+}
 
 body {
-  background-image: url("../images/emergency-service.png");
-  background-color: #cccccc; /* Used if the image is unavailable */
-  height: auto; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+background-image: url("../images/emergency-service.png");
+background-color: #cccccc; /* Used if the image is unavailable */
+height: auto; /* You must set a specified height */
+background-position: center; /* Center the image */
+background-repeat: no-repeat; /* Do not repeat the image */
+background-size: cover; /* Resize the background image to cover the entire container */
 }
 /* .overlay {
-  background-color: rgba(0, 0, 0, 0.4);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 1;
+background-color: rgba(0, 0, 0, 0.4);
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+position: relative;
+z-index: 1;
 } */
 
 footer {
-  padding:1.5em 4em;
-  display:grid;
-  grid-template-columns: repeat(8, 1fr);
-  width: 100%;
+padding:1.5em 4em;
+display:grid;
+grid-template-columns: repeat(8, 1fr);
+width: 100%;
 }
 
 
