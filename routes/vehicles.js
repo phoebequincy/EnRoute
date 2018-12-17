@@ -1,9 +1,9 @@
-// 'use strict'
-//
-// const knex = require('../knex')
-// const express = require('express');
-// const router = express.Router();
-//
+'use strict'
+
+const knex = require('../knex')
+const express = require('express');
+const router = express.Router();
+
 // /* GET users listing. */
 // router.get('/', function(req, res, next){
 // return knex('vehicles')
@@ -57,4 +57,4 @@
 //     })
 // })
 //
-// module.exports = router;
+module.exports = router;
