@@ -6,11 +6,10 @@ const router = express.Router();
 
 
 //get all events
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   return knex('events')
-  .select('id', 'location', 'description', 'date', 'time')
-  .then ((result) => {
-    res.status(200).json(result)
+  .then(data => {
+    res.status(200).json(data)
   })
 })
 
@@ -18,7 +17,6 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   return knex('events')
   .where('id', req.params.id)
-  .select('id')
   .first()
   .then(data => {
     res.status(200).json(data)
@@ -26,12 +24,21 @@ router.get('/:id', function(req, res, next) {
 })
 
 //get event coordinates
-router.get('/:user', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
     return knex('events')
-    .select('coordinates')
-    .where(user_id, req.params.user)
+    .where('u_id', req.params.id)
+    .join('users', 'events.u_id', 'users_id' )
     .then(data => {
       res.send(data)
+    })
+})
+
+router.get('/:id', (req, res, next) => {
+    return knex('events')
+    .where('events.u_id', req.params.id)
+    // .join('users','events.u_id', 'user_id')
+    .then(data => {
+      res.status(200).json(data)
     })
 })
 

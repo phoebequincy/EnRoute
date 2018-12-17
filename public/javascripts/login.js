@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
     form.addEventListener('submit', (event) => {
     event.preventDefault()
 
-      let userId = form.userId.value
+      let userId = form.user_input.value
 
     getCoords(userId)
     .then(results => {
