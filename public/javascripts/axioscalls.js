@@ -2,9 +2,16 @@
 function getAllUsers(){
   return axios.get('/events')
 }
-// get one event
-function getOneUser(eventId){
-return axios.get(`events/${eventId}`)
+
+// get event, return coords
+function getCoords(userId){
+return axios.get(`events/${userId}`)
+
+
+//auth get token
+function getToken(userId){
+  return axios.get(`/token/${userId}`)
+}
 
 
 //get the foreign API
