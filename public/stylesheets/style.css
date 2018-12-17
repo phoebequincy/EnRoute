@@ -2,11 +2,18 @@ h1 {
   color: red;
 }
 
+body {
+  flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+}
+
 header {
   width: 100%;
   background-color: #213740;
 }
 
+<<<<<<< HEAD
 #map{
     media:screen;
     height:400px;
@@ -14,19 +21,29 @@ header {
   }
 
 logo img {
+=======
+/* logo img {
+>>>>>>> c7f82ae49308b2ae16bbb235ade5d855a80d4b10
   width:60%;
   padding-top:3.5em;
   padding-left:50px;
-}
+} */
 
 .wrapper {
-  display:grid;
+  /* display:grid;
   grid-template-rows: 12% 76% 12%;
-  grid-gap:0;
+  grid-gap:0; */
   height: 100vh;
   width: 100vw;
 }
-.main {
+
+main {
+   flex: 1 0 auto;
+   width:100vw;
+
+ }
+
+body {
   background-image: url("../images/emergency-service.png");
   background-color: #cccccc; /* Used if the image is unavailable */
   height: auto; /* You must set a specified height */
@@ -52,6 +69,6 @@ footer {
   background-color: #213740;
 }
 
-.footer-menu-item {
+/* .footer-menu-item {
 padding:3em 4em;
-}
+} */
