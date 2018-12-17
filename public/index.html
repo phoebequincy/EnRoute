@@ -22,6 +22,9 @@
 <!--local stylesheet-->
   <link rel="stylesheet" href="./stylesheets/style.css">
 
+  <!--google map api-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer></script>
+
 
 </head>
 
@@ -32,32 +35,34 @@
   <!-- <div class="wrapper"> -->
 
 
-    <header>
-      <!--Materialize Navbar-->
-      <nav>
-        </div>
-        <div class="nav-wrapper teal lighten-5">
-          <a href="index.html" class="brand-logo main-font black-text m-l">EnRoute</a>
+  <header>
+    <!--Materialize Navbar-->
+    <nav class="blue-grey darken-4">
+      </div>
+      <div class="nav-wrapper">
+        <span>
+              <img class="logo-png" src="/images/119060.svg">
+            </span>
+        <a href="index.html" class="brand-logo main-font white-text m-l">EnRoute</a>
           <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a class="grey-text text-darken-5" href="map.html">Map</a></li>
-            <li><a class="grey-text text-darken-5" href="messages.html">Message</a></li>
-            <li><a class="grey-text text-darken-5" href="account.html">Account</a></li>
-          </ul>
-        </div>
-      </nav>
 
-      <!--Materialize Mobile Nav-->
-      <ul class="sidenav" id="mobile-demo">
-        <li><a href="map.html">Map</a></li>
-        <li><a href="messages.html">Message</a></li>
-        <li><a href="account.html">Account</a></li>
-      </ul>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="grey-text text-darken-5" href="map.html">Map</a></li>
+          <li><a class="grey-text text-darken-5" href="messages.html">Message</a></li>
+          <li><a class="grey-text text-darken-5" href="account.html">Account</a></li>
+        </ul>
 
-      <!-- <a href="index.html"><logo>
-        <img src="./images/logo-wt.png" width="50%">
-        <logo></a> -->
-    </header>
+      </div>
+    </nav>
+
+    <!--Materialize Mobile Nav-->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="map.html">Map</a></li>
+      <li><a href="messages.html">Message</a></li>
+      <li><a href="account.html">Account</a></li>
+    </ul>
+
+  </header>
 
 
     <!-- <div class="main">
@@ -110,10 +115,10 @@
 
 
 
-  <footer class="page-footer blue-grey">
+  <footer class="page-footer blue-grey darken-4">
     <div class="footer-menu-item">
       <span style="font-size: 48px; color: white;">
-          <a href="maps.html"><i class="fas fa-map-marker-alt fa-xs"></i></a>
+          <a href="mapDisplay.html"><i class="fas fa-map-marker-alt fa-xs"></i></a>
       </span>
     </div>
     <div class="footer-menu-item">
