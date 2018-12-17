@@ -26,13 +26,13 @@ router.get('/:id', function(req, res, next) {
 })
 
 //get event coordinates
-router.get('/:user', (req, res, next => {
+router.get('/:user', (req, res, next) => {
     return knex('events')
     .select('coordinates')
     .where(user_id, req.params.user)
     .then(data => {
       res.send(data)
     })
-}))
+})
 
 module.exports = router;
