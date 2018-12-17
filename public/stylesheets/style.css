@@ -1,3 +1,8 @@
+#map {
+  height:78vh;
+  width: 100%;
+}
+
 h1 {
   color: red;
 }
@@ -19,18 +24,41 @@ header {
   padding-left:50px;
 } */
 
-.wrapper {
-  /* display:grid;
-  grid-template-rows: 12% 76% 12%;
-  grid-gap:0; */
-  height: 100vh;
-  width: 100vw;
-}
 
 main {
    flex: 1 0 auto;
    width:100vw;
 
+ }
+
+
+ nav .brand-logo {
+   border-left: 0.1rem solid #b6b6b6;
+   bottom:8px;
+   font-family:'Roboto', sans-serif;
+   font-size: 1.25rem;
+   font-weight: 200;
+   letter-spacing: 0.2rem;
+   line-height: 2rem;
+   padding-left: 0.75rem;
+   position: relative;
+   text-transform: uppercase;
+ }
+ nav .logo-text {
+   padding:0;
+ }
+
+ nav .logo-png {
+   padding-left: 15px;
+   padding-top: 13px;
+   width: 50px;
+ }
+
+ nav ul li {
+   font-size: 1.25rem;
+   font-weight: 400;
+   letter-spacing: 0.2rem;
+   text-transform: uppercase;
  }
 
 body {
@@ -54,10 +82,10 @@ body {
 footer {
   padding:1.5em 4em;
   display:grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   width: 100%;
-  background-color: #213740;
 }
+
 
 /* .footer-menu-item {
 padding:3em 4em;

@@ -5,7 +5,9 @@ function getAllUsers(){
 
 // get event, return coords
 function getCoords(userId){
-return axios.get(`events/${userId}`)
+return axios.post('/events/group/', {
+	"userId":userId
+})
 
 
 //auth get token
