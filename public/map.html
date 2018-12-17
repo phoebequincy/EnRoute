@@ -23,8 +23,11 @@
 
 
     function initMap() {
-
+      var directionsService = new google.maps.DirectionsService();
+      var directionsDisplay = new google.maps.DirectionsRenderer();
+      var chicago = new google.maps.LatLng(41.850033, -87.6500523);
       // SETTINGS AND IMAGE FOR ICONS
+      //
       function addFire(coords) {
         let marker = new google.maps.Marker({
           position: coords,
@@ -65,8 +68,8 @@
 
         }
       }
-      let map = new google.maps.Map(document.getElementById('map'), options)
-
+      var map = new google.maps.Map(document.getElementById('map'), options);
+      directionsDisplay.setMap(map);
 
       //
       //// You can copy and paste this guy to add more fires!
@@ -75,10 +78,6 @@
         lng: -105.280622
       })
 
-    // console.log(do_something())
-    ////// do_something is not defined
-    ////// begin experimental code
-    //////
     function geo_success(position) {
       addAmb({
         lat: position.coords.latitude,
@@ -99,11 +98,31 @@
 
   var wpid = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
 
-
+  //} WHERE THE ORIGINAL FUNCTION ENDED
+  //// experimental code begin
+  function calcRoute() {
+    var start = {
+      lat: 40.819500,
+      lng: -105.280622
+    }
+    var end = {
+      lat: 40.019500,
+      lng: -105.280622
+    }
+    var request = {
+      origin: start,
+      destination: end,
+      travelMode: 'DRIVING'
+    }
+    directionsService.route(request, function(result, status) {
+        if (status == 'OK') {
+          directionsDisplay.setDirections(result);
+        }
+  })
+  ////experimental code end
   }
-  //// experimental code end
-
-
+ calcRoute()
+}
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer>
 
