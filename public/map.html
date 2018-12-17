@@ -1,67 +1,114 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>EnRoute</title>
 
-    <style media="screen">
-      #map{
-        height:400px;
-        width:100%;
-      }
-    </style>
+<head>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
 
-  </head>
-  <body>
-    <h1>EnRoute</h1>
-    <div id="map"></div>
-    <script>
-      function initMap(){
-        var fireIcon = {
-    url: "https://cdn.emojidex.com/emoji/seal/fire.png?1466441570", // url
-    scaledSize: new google.maps.Size(25, 25), // scaled size
-    origin: new google.maps.Point(0,0), // origin
-    anchor: new google.maps.Point(0, 0) // anchor
-}
+  <title>OnRoute</title>
+  <style media="screen">
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
 
-var ambIcon = {
-url: "https://images.emojiterra.com/google/android-pie/512px/1f691.png", // url
-scaledSize: new google.maps.Size(25, 25), // scaled size
-origin: new google.maps.Point(0,0), // origin
-anchor: new google.maps.Point(0, 0) // anchor
-}
+</head>
 
-        var options = {
-          zoom:15,
-          center:{lat:40.0150, lng:-105.2705}
-        }
-        let map = new google.maps.Map(document.getElementById('map'), options)
+<body>
+  <h1>OnRoute</h1>
+  <div id="map"></div>
+  <script>
 
-      // You can copy and paste this guy to add more fires!
-      addFire({lat:40.017500, lng:-105.280622})
 
-      addAmb({lat:40.013500, lng:-105.280622})
 
-      function addFire (coords){
+    function initMap() {
+
+      // SETTINGS AND IMAGE FOR ICONS
+      function addFire(coords) {
         let marker = new google.maps.Marker({
-          position:coords,
-          map:map,
-          icon:fireIcon
-          })
-        }
-
-        function addAmb (coords){
-          let marker = new google.maps.Marker({
-            position:coords,
-            map:map,
-            icon:ambIcon
-            })
-          }
-
+          position: coords,
+          map: map,
+          icon: fireIcon
+        })
       }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap"
-    async defer></script>
-  </body>
+
+      function addAmb(coords) {
+        let marker = new google.maps.Marker({
+          position: coords,
+          map: map,
+          icon: ambIcon
+        })
+      }
+      let fireIcon = {
+        url: "https://cdn.emojidex.com/emoji/seal/fire.png?1466441570", // url
+        scaledSize: new google.maps.Size(25, 25), // scaled size
+        origin: new google.maps.Point(0, 0), //
+        anchor: new google.maps.Point(0, 0) //
+      }
+
+      let ambIcon = {
+        url: "https://images.emojiterra.com/google/android-pie/512px/1f691.png", // url
+        scaledSize: new google.maps.Size(25, 25),
+        origin: new google.maps.Point(0, 0), //
+        anchor: new google.maps.Point(0, 0) //
+      }
+  ////////////////
+
+      //OPTIONS FOR THE MAP ITSELF
+      let options = {
+        zoom: 15,
+        center: {
+          lat: 40.0150,
+          lng: -105.2705,
+          mapTypeId : google.maps.MapTypeId.ROADMAP
+
+        }
+      }
+      let map = new google.maps.Map(document.getElementById('map'), options)
+
+
+      //
+      //// You can copy and paste this guy to add more fires!
+      addFire({
+        lat: 40.019500,
+        lng: -105.280622
+      })
+
+    // console.log(do_something())
+    ////// do_something is not defined
+    ////// begin experimental code
+    //////
+    function geo_success(position) {
+      addAmb({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      })
+    console.log(position.coords.latitude, position.coords.longitude)
+  }
+
+  function geo_error() {
+    alert("Sorry, no position available.");
+  }
+
+  var geo_options = {
+    enableHighAccuracy: true,
+    maximumAge        : 30000,
+    timeout           : 27000
+  };
+
+  var wpid = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
+
+
+  }
+  //// experimental code end
+
+
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer>
+
+  </script>
+
+</body>
+
 </html>
