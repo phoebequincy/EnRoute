@@ -7,6 +7,12 @@ header {
   background-color: #213740;
 }
 
+#map{
+    media:screen;
+    height:400px;
+    width:100%;
+  }
+
 logo img {
   width:60%;
   padding-top:3.5em;

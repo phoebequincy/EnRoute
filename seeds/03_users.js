@@ -1,9 +1,9 @@
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('vehicles').del()
+  return knex('users').del()
     .then(function () {
       // Inserts seed entries
-  return knex('vehicles').insert([{
+  return knex('users').insert([{
   id:1,
   truck_number:1,
   type:'Tri-Med AMB',
@@ -30,24 +30,8 @@ exports.seed = function(knex, Promise) {
 }])
       .then(() => {
         return knex.raw(
-          `SELECT setval('vehicles_id_seq', (SELECT MAX(id) FROM vehicles));`
+          `SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));`
         )
       })
     })
 }
-
-
-
-// var x = document.getElementById("demo");
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//   } else {
-//     x.innerHTML = "Geolocation is not supported by this browser.";
-//   }
-// }
-//
-// function showPosition(position) {
-//   x.innerHTML = "Latitude: " + position.coords.latitude +
-//   "<br>Longitude: " + position.coords.longitude;
-// }
