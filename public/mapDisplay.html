@@ -5,6 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
+  <!--Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  <!--End Favicon  -->
 
   <title>EnRoute Emergency Vehicle Tracking System</title>
 
@@ -29,16 +37,9 @@
   <script src="./javascripts/index.js"></script>
   <script src="./javascripts/login.js"></script>
 
-  <!-- <style media="screen">
-    #map {
-      height: 500px;
-      width: 100vw;
-    }
-  </style> -->
 </head>
 
 <body>
-
   <!-- <div class="wrapper"> -->
   <header>
     <!--Materialize Navbar-->
@@ -46,14 +47,14 @@
       </div>
       <div class="nav-wrapper">
         <span>
-              <img class="logo-png" src="/images/119060.svg">
-            </span>
+          <img class="logo-png" src="/images/119060.svg">
+        </span>
         <a href="index.html" class="brand-logo main-font white-text m-l">EnRoute</a>
-          <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
         <ul class="right hide-on-med-and-down">
-          <li><a class="grey-text text-darken-5" href="map.html">Map</a></li>
-          <li><a class="grey-text text-darken-5" href="messages.html">Message</a></li>
+          <li><a class="grey-text text-darken-5" href="mapDisplay.html">Map</a></li>
+          <li><a class="grey-text text-darken-5" href="messages.html">Messages<a></li>
           <li><a class="grey-text text-darken-5" href="account.html">Account</a></li>
         </ul>
 
@@ -62,57 +63,16 @@
 
     <!--Materialize Mobile Nav-->
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="map.html">Map</a></li>
-      <li><a href="messages.html">Message</a></li>
+      <li><a href="mapDisplay.html">Map</a></li>
+      <li><a href="messages.html">Messages</a></li>
       <li><a href="account.html">Account</a></li>
     </ul>
 
   </header>
-
-  <!-- <div class="main">
-      <div class="overlay"> -->
-
-<!-- here is where the login form starts       -->
-
-<!-- <div class="row">
-  <form id="loginForm" class="col offset-s2 s8">
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">Log in</span>
-
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="User" id="user_input" type="text" class="validate">
-            <label for="user_input">User Id</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="Password" id="password" type="password" class="validate">
-            <label for="password">Password</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-action">
-        <button class="waves-effect waves-light btn-large" type="submit" name="action">
-          <i class="material-icons left">lock</i>
-          Log in
-        </button>
-      </div>
-    </div>
-  </form>
-</div> -->
-
-
-<!-- log in form ends -->
-
-<div id="map" class="map">
+  <div id="map" class="map">
     <main class='container'>
 
       <script>
-
         let myLatLng
         let emer
 
@@ -121,7 +81,6 @@
           let directionsService = new google.maps.DirectionsService();
           let directionsDisplay = new google.maps.DirectionsRenderer();
           let chicago = new google.maps.LatLng(41.850033, -87.6500523);
-
 
           //// BEGIN INFO FOR ICONS
           function addFire(coords) {
@@ -209,71 +168,31 @@
         }
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer>
-
       </script>
-
-
-</main>
-    </div><!-- map -->
-
-
-
-  <!-- </div> -->
-  <!--overlay--->
-  <!-- </div> -->
-  <!--main--->
-
-
-
-
-
-
-  <footer class="page-footer blue-grey darken-4">
-
-    <div class="footer-menu-item">
-      <span style="font-size: 48px; color: #e8e8e8;">
-          <a href="mapDisplay.html"><i class="fas fa-map-marker-alt fa-xs"></i></a>
-      </span>
-    </div>
-    <div class="footer-menu-item">
-      <span style="font-size: 48px; color: #e64525;">
-          <i class="fa fa-ambulance fa-xs"></i>
-        </span>
-    </div>
-    <div class="footer-menu-item">
-      <span style="font-size: 48px; color: #e8e8e8;">
-        <a href="messages.html"><i class="fas fa-comment-alt fa-xs"></i></a>
-      </span>
-    </div>
-    <div class="footer-menu-item">
-      <span style="font-size: 48px; color: #e8e8e8;">
-              <i class="fas fa-cog fa-xs"></i>
-            </span>
-    </div>
-
-
-  </footer>
-
-
-  <!-- <footer class="page-footer blue-grey">
-    <div class="footer-copyright">
-      <small>© 2018 EnRoute Inc., Inc. All Rights Reserved</small>
-    </div>
-  </footer> -->
-
+    </main>
+    <!-- Footer -->
+    <!-- Map Marker Icon -->
+<footer class="page-footer blue-grey darken-4">
+  <div class="footer-menu-item">
+    <span style="font-size: 48px; color: white;">
+      <a href="mapDisplay.html"><i class="fas fa-map-marker-alt fa-xs"></i></a>
+    </span>
   </div>
-  <!--wrapper-->
-
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+  <!-- Ambulance Icon -->
+  <div class="footer-menu-item">
+    <span style="font-size: 48px; color: #e64525;">
+      <a href="messages.html"><i class="fa fa-ambulance fa-xs"></i></a>
+    </span>
+  </div>
+  <!-- Settings/Account Icon -->
+  <div class="footer-menu-item">
+    <span style="font-size: 48px; color: #9e9e9e;">
+      <a href="account.html"><i class="fas fa-cog fa-xs"></i></a>
+        </span>
+      </div>
+    </footer>
+    </div>
   <script src="./javascripts/map.js"></script>
-
 </body>
 
 </html>
