@@ -19,15 +19,19 @@
   <!--font awesome-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+
+  <script src='./javascripts/axioscalls.js'></script>
+
   <!--local stylesheet-->
   <link rel="stylesheet" href="./stylesheets/style.css">
 
   <!--google map api-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer></script> -->
 
-  <!--local js files-->
-  <script src="./javascripts/index.js"></script>
-  <script src="./javascripts/login.js"></script>
+
+
 
   <!-- <style media="screen">
     #map {
@@ -39,7 +43,6 @@
 
 <body>
 
-  <!-- <div class="wrapper"> -->
   <header>
     <!--Materialize Navbar-->
     <nav class="blue-grey darken-4">
@@ -49,7 +52,7 @@
               <img class="logo-png" src="/images/119060.svg">
             </span>
         <a href="index.html" class="brand-logo main-font white-text m-l">EnRoute</a>
-          <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
         <ul class="right hide-on-med-and-down">
           <li><a class="grey-text text-darken-5" href="map.html">Map</a></li>
@@ -69,67 +72,87 @@
 
   </header>
 
-  <!-- <div class="main">
-      <div class="overlay"> -->
 
-<!-- here is where the login form starts       -->
 
-<!-- <div class="row">
-  <form id="loginForm" class="col offset-s2 s8">
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">Log in</span>
 
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="User" id="user_input" type="text" class="validate">
-            <label for="user_input">User Id</label>
+  <main class='container'>
+    <!-- <div class="main">
+          <div class="overlay"> -->
+
+    <!-- here is where the login form starts       -->
+
+    <div class="row">
+      <form id="loginForm" class="col offset-s2 s8">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Log in</span>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="User" id="user_input" type="text" class="validate">
+                <label for="user_input">User Id</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Password" id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-action">
+            <button class="waves-effect waves-light btn-large" type="submit" name="action">
+              <i class="material-icons left">lock</i>
+              Log in
+            </button>
           </div>
         </div>
-
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="Password" id="password" type="password" class="validate">
-            <label for="password">Password</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-action">
-        <button class="waves-effect waves-light btn-large" type="submit" name="action">
-          <i class="material-icons left">lock</i>
-          Log in
-        </button>
-      </div>
+      </form>
     </div>
-  </form>
-</div> -->
 
 
-<!-- log in form ends -->
-
-<div id="map" class="map">
-    <main class='container'>
-
+    <!-- log in form ends -->
+    <div id="map" class="map">
+        </div><!-- map -->
       <script>
 
         let myLatLng
         let emer
+        let map
+        let fireIcon
+
+        let start
+        let end
+        let request
+
+
 
 
         function initMap() {
           let directionsService = new google.maps.DirectionsService();
           let directionsDisplay = new google.maps.DirectionsRenderer();
-          let chicago = new google.maps.LatLng(41.850033, -87.6500523);
+          // let chicago = new google.maps.LatLng(41.850033, -87.6500523);
 
 
           //// BEGIN INFO FOR ICONS
+          // function addFire(coords) {
+          //   let marker = new google.maps.Marker({
+          //     position: coords,
+          //     map: map,
+          //     icon: fireIcon
+          //   })
+          // }
+
           function addFire(coords) {
+
             let marker = new google.maps.Marker({
               position: coords,
               map: map,
               icon: fireIcon
             })
+            marker.setMap(map)
           }
 
           function addAmb(coords) {
@@ -139,12 +162,14 @@
               icon: ambIcon
             })
           }
-          let fireIcon = {
+
+          fireIcon = {
             url: "https://cdn.emojidex.com/emoji/seal/fire.png?1466441570", // url
-            scaledSize: new google.maps.Size(25, 25), // scaled size
+            scaledSize: new google.maps.Size(35, 35), // scaled size
             origin: new google.maps.Point(0, 0), //
             anchor: new google.maps.Point(0, 0) //
           }
+
 
           let ambIcon = {
             url: "https://images.emojiterra.com/google/android-pie/512px/1f691.png", // url
@@ -165,24 +190,54 @@
 
             }
           }
-          let map = new google.maps.Map(document.getElementById('map'), options);
+
+          map = new google.maps.Map(document.getElementById('map'), options);
           directionsDisplay.setMap(map);
 
-          function geo_success(position) {
+          // directionsDisplay.setMap(map);
+
+        async function geo_success(position) {
+
+            // DOM
+            let form = document.querySelector('form')
+            form.addEventListener('submit', (event) => {
+              console.log("hello! ")
+              event.preventDefault()
+
+              let userId = form.user_input.value
+              console.log(userId)
+
+              getCoords(userId)
+                .then(results => {
+                  console.log(results.data)
+
+                  emer = {
+                    lat: parseFloat(results.data.lat),
+                    lng: parseFloat(results.data.lng)
+                  }
+
+                  // emer = new google.maps.LatLng(parseFloat(results.data.lat), parseFloat(results.data.lng))
+                  console.log('emer,', emer);
+                  addFire(emer)
+                })
+              return emer
+            })
+            // end DOM
+
             myLatLng = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             }
-            emer = {
-              lat: 40.019500,
-              lng: -105.280622
-            }
+            // emer = {
+            //   lat: 40.019500,
+            //   lng: -105.280622
+            // }
 
             addAmb(myLatLng)
-            addFire(emer)
-            let start = myLatLng
-            let end = emer
-            let request = {
+
+            start = myLatLng
+            end = emer
+            request = {
               origin: myLatLng,
               destination: end,
               travelMode: 'DRIVING',
@@ -200,7 +255,7 @@
           }
 
           let geo_options = {
-            enableHighAccuracy: true,
+            enableHighAccuracy: false,
             maximumAge: 30000,
             timeout: 27000
           };
@@ -208,25 +263,16 @@
           let wpid = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
         }
       </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer>
-
-      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer></script>
 
 
-</main>
-    </div><!-- map -->
-
-
-
-  <!-- </div> -->
-  <!--overlay--->
-  <!-- </div> -->
-  <!--main--->
+  </main>
 
 
 
 
 
+  <!--start footer--->
 
   <footer class="page-footer blue-grey darken-4">
 
@@ -251,28 +297,11 @@
             </span>
     </div>
 
-
   </footer>
 
+  <!--end footer--->
 
-  <!-- <footer class="page-footer blue-grey">
-    <div class="footer-copyright">
-      <small>© 2018 EnRoute Inc., Inc. All Rights Reserved</small>
-    </div>
-  </footer> -->
-
-  </div>
-  <!--wrapper-->
-
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-  <script src="./javascripts/map.js"></script>
+  <!-- <script src="./javascripts/index.js"></script> -->
 
 </body>
 

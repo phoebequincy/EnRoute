@@ -1,4 +1,6 @@
 #map {
+  /* visibility: hidden; */
+  /* display: none; */
   height:78vh;
   width: 100%;
 }
