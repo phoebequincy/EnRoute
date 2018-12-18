@@ -29,8 +29,6 @@
       setMapOnAll(null);
     }
 
-
-
     function showMarkers() {
         setMapOnAll(map);
       }
@@ -176,15 +174,13 @@
         maximumAge: 30000,
         timeout: 27000
       };
-      ////////
+
       setInterval( function (){
         deleteMarkers()
         addAmb(myLatLng)
+        addFire(emer)
       }, 5000)
 
-
-      setInterval(console.log('deleted marker'), 26000)
-      ///////
       let TransitOptions = {
         arrivalTime: Date,
       }
