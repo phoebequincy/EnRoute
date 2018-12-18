@@ -130,8 +130,6 @@ body {
 
 footer {
   padding:1.5em 4em;
-  display:grid;
-  grid-template-columns: repeat(8, 1fr);
   width: 100%;
 }
 
