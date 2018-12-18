@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var http = require('http').Server(app)
+
 
 var eventsRouter = require('./routes/events');
 var vehiclesRouter = require('./routes/vehicles');
@@ -19,5 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/events', eventsRouter);
 app.use('/vehicles', vehiclesRouter);
 app.use('/users', usersRouter);
+
+var numUsers = 0;
+
+
 
 module.exports = app;
