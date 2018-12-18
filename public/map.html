@@ -16,12 +16,16 @@
 </head>
 
 <body>
-  <h1>OnRoute</h1>
+  <h1>EnRoute</h1>
+  <div id ="dvDistance"></div>
   <div id="map"></div>
-  <script>
 
+  <script>
     let myLatLng
     let emer
+ 
+
+
 
 
     function initMap() {
@@ -87,6 +91,7 @@
 
         addAmb(myLatLng)
         addFire(emer)
+
         let start = myLatLng
         let end = emer
         let request = {
@@ -96,10 +101,32 @@
         }
         directionsService.route(request, function(result, status) {
           if (status == 'OK') {
+            console.log(result)
             directionsDisplay.setDirections(result);
           }
         })
 
+        var service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix({
+          origins: [myLatLng],
+          destinations: [emer],
+          travelMode: google.maps.TravelMode.DRIVING,
+          unitSystem: google.maps.UnitSystem.IMPERIAL,
+          avoidHighways: false,
+          avoidTolls: false
+        }, function(response, status) {
+          if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+            var distance = response.rows[0].elements[0].distance.text;
+            var duration = response.rows[0].elements[0].duration.text;
+            var dvDistance = document.getElementById("dvDistance");
+            dvDistance.innerHTML = "";
+            dvDistance.innerHTML += "Distance: " + distance + "<br />";
+            dvDistance.innerHTML += "Duration:" + duration;
+
+          } else {
+            alert("Unable to find the distance via road.");
+          }
+        });
       }
 
       function geo_error() {
@@ -111,6 +138,10 @@
         maximumAge: 30000,
         timeout: 27000
       };
+
+      let TransitOptions = {
+        arrivalTime: Date,
+      }
 
       let wpid = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
     }
