@@ -1,8 +1,11 @@
 #map {
-  /* visibility: hidden; */
-  /* display: none; */
-  height:78vh;
-  width: 100%;
+  /* opacity: 0; */
+  visibility: hidden;
+  /* display:none; */
+  /* height:78vh;
+  width: 100%; */
+  height: 1px;
+  width:1px;
 }
 
 h1 {
@@ -36,7 +39,7 @@ main {
 
  nav .brand-logo {
    border-left: 0.1rem solid #b6b6b6;
-   bottom:8px;
+   bottom:0px;
    font-family:'Roboto', sans-serif;
    font-size: 1.25rem;
    font-weight: 200;
@@ -51,9 +54,9 @@ main {
  }
 
  nav .logo-png {
-   padding-left: 15px;
-   padding-top: 13px;
-   width: 50px;
+   padding-left: 35px;
+   padding-top: 18px;
+   width: 225px;
  }
 
  nav ul li {
