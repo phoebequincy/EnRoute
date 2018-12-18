@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+
+<!--Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+<!--End Favicon  -->
+
+<title>EnRoute Emergency Vehicle Tracking System</title>
+
+<!-- materialize -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!--font awesome-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+<!--local stylesheet-->
+<link rel="stylesheet" href="./stylesheets/style.css">
+
+<!--google map api-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer></script>
+</head>
+<body>
+  <!-- <div class="wrapper"> -->
+  <header>
+    <!--Materialize Navbar-->
+    <nav class="blue-grey darken-4">
+      <div class="nav-wrapper">
+        <span>
+          <img class="logo-png" src="/images/119060.svg">
+        </span>
+        <a href="index.html" class="brand-logo main-font white-text m-l">EnRoute</a>
+        <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+
+        <ul class="right hide-on-med-and-down">
+          <li><a class="grey-text text-darken-5" href="mapDisplay.html">Map</a></li>
+          <li><a class="grey-text text-darken-5" href="messages.html">Messages</a></li>
+          <li><a class="grey-text text-darken-5" href="index.html">Log In</a></li>
+        </ul>
+
+      </div>
+    </nav>
+    <!--Materialize Mobile Nav-->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="mapDisplay.html">Map</a></li>
+      <li><a href="messages.html">Messages</a></li>
+      <li><a href="index.html">Log In</a></li>
+    </ul>
+  </header>
+  <main class="container">
+    <div class="row">
+      <form id="loginForm" class="col offset-s1 s10">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Log In</span>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Goup ID" id="user_input" type="text" class="validate" maxlength="7" required>
+                <label for="user_input">Enter your group id...</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Password" id="password" type="password" class="validate" maxlength="8" required>
+                <label for="password">Enter your password...</label>
+              </div>
+              <label style='float: center;'>
+                <a class='pink-text' href='#!'>Forgot Password?</a>
+              </label>
+            </div>
+          </div>
+
+          <div class="card-action">
+            <button class="waves-effect waves-light btn-large" type="submit" name="action">
+              <i class="material-icons left">lock</i>
+              Log in
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+  <!-- Footer -->
+  <!-- Map Marker Icon -->
+  <footer class="page-footer blue-grey darken-4">
+    <div class="footer-menu-item">
+      <span style="font-size: 48px; color: white;">
+        <a href="mapDisplay.html"><i class="fas fa-map-marker-alt fa-xs"></i></a>
+      </span>
+    </div>
+    <!-- Ambulance Icon -->
+    <div class="footer-menu-item">
+      <span style="font-size: 48px; color: #e64525;">
+        <a href="messages.html"><i class="fa fa-ambulance fa-xs"></i></a>
+      </span>
+    </div>
+    <!-- Settings/Account Icon -->
+    <div class="footer-menu-item">
+      <span style="font-size: 48px; color: #9e9e9e;">
+        <a href="account.html"><i class="fas fa-cog fa-xs"></i></a>
+      </span>
+    </div>
+  </footer>
+  <!--wrapper-->
+  <script src="./javascripts/index.js"></script>
+  <script src="./javascripts/login.js"></script>
+</body>
+</html>
