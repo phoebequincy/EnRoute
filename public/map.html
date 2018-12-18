@@ -17,16 +17,31 @@
 
 <body>
   <h1>EnRoute</h1>
-  <div id ="dvDistance"></div>
+  <div id="dvDistance"></div>
   <div id="map"></div>
 
   <script>
     let myLatLng
     let emer
- 
+    let markers = []
+    function clearMarkers() {
+      setMapOnAll(null);
+    }
 
+    function showMarkers() {
+        setMapOnAll(map);
+      }
 
+    function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
 
+      function deleteMarkers() {
+        clearMarkers();
+        markers = [];
+      }
 
     function initMap() {
       let directionsService = new google.maps.DirectionsService();
@@ -41,6 +56,7 @@
           map: map,
           icon: fireIcon
         })
+        markers.push(marker)
       }
 
       function addAmb(coords) {
@@ -49,6 +65,7 @@
           map: map,
           icon: ambIcon
         })
+        markers.push(marker)
       }
       let fireIcon = {
         url: "https://cdn.emojidex.com/emoji/seal/fire.png?1466441570", // url
@@ -91,7 +108,25 @@
 
         addAmb(myLatLng)
         addFire(emer)
-
+//////////////////////
+        function placeAmb(location) {
+          if (!marker || !marker.setPosition) {
+            marker = new google.maps.Marker({
+              position: location,
+              map: map,
+            });
+          } else {
+            marker.setPosition(location);
+          }
+          if (!!infowindow && !!infowindow.close) {
+            infowindow.close();
+          }
+          infowindow = new google.maps.InfoWindow({
+            content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
+          });
+          infowindow.open(map, marker);
+        }
+///////////////////////
         let start = myLatLng
         let end = emer
         let request = {
@@ -138,7 +173,15 @@
         maximumAge: 30000,
         timeout: 27000
       };
+      ////////
+      setInterval( function (){
+        deleteMarkers()
+        addAmb(myLatLng)
+      }, 5000)
 
+
+      setInterval(console.log('deleted marker'), 26000)
+      ///////
       let TransitOptions = {
         arrivalTime: Date,
       }
