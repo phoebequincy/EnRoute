@@ -45,9 +45,8 @@
       </div>
       <div class="nav-wrapper">
         <span>
-          <img class="logo-png" src="/images/119060.svg">
+          <img class="logo-png" src="/images/enroute_logo.svg">
         </span>
-        <a href="index.html" class="brand-logo main-font white-text m-l">EnRoute</a>
       </div>
     </nav>
   </header>
@@ -56,31 +55,34 @@
     <!-- here is where the login form starts       -->
 
     <div class="row">
-      <form id="loginForm" class="col offset-s2 s8">
+      <form id="loginForm" class="col offset-s1 s10">
         <div class="card">
           <div class="card-content">
-            <span class="card-title">Log in</span>
+            <span class="card-title">Log In</span>
 
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="User" id="user_input" type="text" class="validate">
-                <label for="user_input">User Id</label>
+                <input placeholder="Group ID" id="user_input" type="text" class="validate" maxlength="7" required>
+                <label for="user_input">Enter your group id...</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Password" id="password" type="password" class="validate">
-                <label for="password">Password</label>
+                <input placeholder="Password" id="password" type="password" class="validate" maxlength="8" required>
+                <label for="password">Enter your password...</label>
               </div>
+              <label style='float: center;'>
+                <a class='pink-text' href='#!'>Forgot Password?</a>
+              </label>
             </div>
           </div>
 
           <div class="card-action">
             <button class="waves-effect waves-light btn-large" type="submit" name="action">
-            <i class="material-icons left">lock</i>
-            Log in
-          </button>
+              <i class="material-icons left">lock</i>
+              Log in
+            </button>
           </div>
         </div>
       </form>
@@ -222,8 +224,9 @@
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer>
       </script>
     </div>
+    <!-- map ends -->
+    </main>
     <!-- Footer -->
-
     <!-- Home Icon -->
     <footer class="page-footer blue-grey darken-4 center-align">
       <div class="footer-menu-item center-align">
@@ -245,7 +248,7 @@
       </div>
     </footer>
 
-  <script src="./javascripts/map.js"></script>
-</main>
+  <!-- <script src="./javascripts/map.js"></script> -->
+
 </body>
 </html>
