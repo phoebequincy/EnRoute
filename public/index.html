@@ -222,8 +222,8 @@
                       var duration = response.rows[0].elements[0].duration.text;
                       var dvDistance = document.getElementById("dvDistance");
                       dvDistance.innerHTML = "";
-                      dvDistance.innerHTML += "Distance: " + distance + "<br />";
-                      dvDistance.innerHTML += "Duration:" + duration;
+                      dvDistance.innerHTML += "<p>" + distance + "</p>";
+                      dvDistance.innerHTML += "<p>" + "ETA: " + duration + "</p>";
 
                     } else {
                       alert("Unable to find the distance via road.");
