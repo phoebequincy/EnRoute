@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
   <!--Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   <!--End Favicon  -->
 
   <title>EnRoute Emergency Vehicle Tracking System</title>
@@ -21,17 +21,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <!-- google fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!--font awesome-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+
+  <script src='./javascripts/axioscalls.js'></script>
+
   <!--local stylesheet-->
   <link rel="stylesheet" href="./stylesheets/style.css">
 
-  <!--google map api-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer></script>
+
 </head>
 
 <body>
@@ -46,29 +50,36 @@
       </div>
     </nav>
   </header>
-  <main>
-  </main>
-  <!-- Footer -->
-  <!-- Home Icon -->
-  <footer class="page-footer blue-grey darken-4 center-align">
-    <div class="footer-menu-item center-align">
-      <span style="font-size: 48px; color: white;">
-        <a href="index.html"><i class="fa fa-home fa-xs center-align"></i></a>
-      </span>
-    </div>
-    <!-- Ambulance Icon -->
-    <div class="footer-menu-item center-align">
-      <span style="font-size: 48px; color: white;">
-        <a href="messages.html"><i class="fa fa-ambulance fa-xs center-align"></i></a>
-      </span>
-    </div>
-    <!-- Settings/Account Icon -->
-    <div class="footer-menu-item center-align">
-      <span style="font-size: 48px; color: white;">
-        <a href="account.html"><i class="fas fa-cog fa-xs center-align"></i></a>
-      </span>
-    </div>
-  </footer>
+
+<main class="container">
+  <iframe class="messages" src="https://socket-chat-enroute.herokuapp.com/"></iframe>
+</main>
+
+
+
+    <!-- Footer -->
+    <!-- Home Icon -->
+    <footer class="page-footer blue-grey darken-4 center-align">
+      <div class="footer-menu-item center-align">
+        <span style="font-size: 48px; color: white;">
+          <a href="index.html"><i class="fa fa-home fa-xs center-align"></i></a>
+        </span>
+      </div>
+      <!-- Ambulance Icon -->
+      <div class="footer-menu-item center-align">
+        <span style="font-size: 48px; color: white;">
+          <a href="messages.html"><i class="fa fa-ambulance fa-xs center-align"></i></a>
+        </span>
+      </div>
+      <!-- Settings/Account Icon -->
+      <div class="footer-menu-item center-align">
+        <span style="font-size: 48px; color: white;">
+          <a href="account.html"><i class="fas fa-cog fa-xs center-align"></i></a>
+        </span>
+      </div>
+    </footer>
+
+  <!-- <script src="./javascripts/map.js"></script> -->
 
 </body>
 </html>
