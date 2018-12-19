@@ -14,6 +14,7 @@
   <meta name="theme-color" content="#ffffff">
   <!--End Favicon  -->
 
+
   <title>EnRoute Emergency Vehicle Tracking System</title>
 
   <!-- materialize -->
@@ -30,81 +31,62 @@
   <!--local stylesheet-->
   <link rel="stylesheet" href="./stylesheets/style.css">
 
-  <!--google map api-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer></script>
-</head>
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src='./javascripts/axioscalls.js'></script>
 
+
+
+</head>
 <body>
   <!-- <div class="wrapper"> -->
   <header>
     <!--Materialize Navbar-->
     <nav class="blue-grey darken-4">
+      </div>
       <div class="nav-wrapper">
         <span>
-          <img class="logo-png" src="/images/enroute_logo.svg">
+          <img class="logo-png" src="/images/enroute_logo.svg"><a href="index.html" class="brand-logo main-font white-text m-l">EnRoute</a>
         </span>
       </div>
     </nav>
   </header>
-  <!--Form -->
   <main class="container">
+
     <div class="row">
-      <form id="accountSettings" class="col offset-s1 s10">
+      <form id="loginForm" class="col offset-s1 s10">
         <div class="card">
           <div class="card-content">
-            <span class="card-title">Account Settings</span>
+            <span class="card-title">Log In</span>
 
-          <!-- Switch -->
-          <label for="push_notifications_switch">Push Notifications<div class="switch"></label>
-            <label>
-              Off
-              <input type="checkbox">
-              <span class="lever"></span>
-              On
-            </label>
-          </div>
-          <!-- Switch -->
-          <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input id="group_name" type="text" class="validate">
-                    <label for="group_name">Group Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="group_id" type="text" class="validate">
-                    <label for="group_id">Group ID</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
-                  </div>
-                </div>
-                <span class="card-title">Change Password</span>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input id="password" type="password" class="validate" maxlength="8" required>
-                    <label for="password">Current password...</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input id="password" type="password" class="validate" maxlength="8" required>
-                    <label for="password">New password...</label>
-                  </div>
-                </div>
-                <div class="input-field col s6">
-                  <div class="waves-effect waves-light btn">Deactivate Account<input id="deactivate" type="text">
-                    <label for="deactivate">Deactivate Account</label>
-                  </div>
-                </div>
-               </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Group ID" id="user_input" type="text" class="validate" maxlength="7" required>
+                <label for="user_input">Enter your group id...</label>
               </div>
             </div>
-          </form>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Password" id="password" type="password" class="validate" maxlength="8" required>
+                <label for="password">Enter your password...</label>
+              </div>
+              <label style='float: center;'>
+                <a class='pink-text' href='#!'>Forgot Password?</a>
+              </label>
+            </div>
+          </div>
+
+          <div class="card-action">
+            <button class="waves-effect waves-light btn-large" type="submit" name="action">
+              <i class="material-icons left">lock</i>
+              Log in
+            </button>
+          </div>
         </div>
+      </form>
+    </div>
+
   </main>
   <!-- Footer -->
   <!-- Home Icon -->
