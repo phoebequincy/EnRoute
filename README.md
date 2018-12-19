@@ -9,7 +9,7 @@ https://enroute-g106.herokuapp.com/
 
 
 ### A style guide
-<a href="/planning-docs/enroute_style_guide.pdf">Style Guide<a.>
+<a href="/planning-docs/enroute_style_guide.pdf">Style Guide</a>
 
 
 ### Planning
