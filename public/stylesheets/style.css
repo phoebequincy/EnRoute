@@ -67,7 +67,7 @@ main {
  }
 
 body {
-  background-image: url("../images/emergency-service.png");
+  background-image: url("../images/amb2.png");
   background-color: #cccccc; /* Used if the image is unavailable */
   height: auto; /* You must set a specified height */
   background-position: center; /* Center the image */
@@ -83,15 +83,66 @@ body {
   position: relative;
   z-index: 1;
 } */
+.footer-menu-item {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 auto;
+  width: 70px;
+  height: 70px;
+  font-size: 52px;
+  transition: all 0.4s ease-in;
+  span[class^='fa'] {
+    position: relative;
+  }
+
+  /*start click effect*/
+  &:before {
+    content: '';
+    background-color: aliceblue;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scale(0.001, 0.001);
+  }
+
+  &:focus {
+    outline: 0;
+    color: #fff;
+    &:before {
+      animation: effect_dylan 0.8s ease-out;
+    }
+  }
+}
+@keyframes effect_dylan {
+  50% {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
+  }
+  99% {
+    transform: scale(0.001, 0.001);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.001, 0.001);
+    opacity: 1;
+  }
+}
 
 footer {
   padding:1.5em 4em;
-  display:grid;
-  grid-template-columns: repeat(8, 1fr);
   width: 100%;
 }
 
+.switch {
+  font-size: 18;
+  line-height: 4em;
 
+}
 /* .footer-menu-item {
 padding:3em 4em;
 } */

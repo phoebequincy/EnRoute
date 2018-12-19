@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
   <!--Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   <!--End Favicon  -->
-
 
   <title>EnRoute Emergency Vehicle Tracking System</title>
 
@@ -45,28 +44,12 @@
     <nav class="blue-grey darken-4">
       </div>
       <div class="nav-wrapper">
-        <a href="index.html" <span>
-              <img class="logo-png" src="/images/enroute_logo.svg">
-            </span></a>
-
-        <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-        <ul class="right hide-on-med-and-down">
-          <li><a class="grey-text text-darken-5" href="map.html">Map</a></li>
-          <li><a class="grey-text text-darken-5" href="messages.html">Message</a></li>
-          <li><a class="grey-text text-darken-5" href="account.html">Account</a></li>
-        </ul>
-
+        <span>
+          <img class="logo-png" src="/images/119060.svg">
+        </span>
+        <a href="index.html" class="brand-logo main-font white-text m-l">EnRoute</a>
       </div>
     </nav>
-
-    <!--Materialize Mobile Nav-->
-    <ul class="sidenav" id="mobile-demo">
-      <li><a href="map.html">Map</a></li>
-      <li><a href="messages.html">Message</a></li>
-      <li><a href="account.html">Account</a></li>
-    </ul>
-
   </header>
   <main class='container'>
 
@@ -108,7 +91,6 @@
     <div id="map" class="map">
 
       <script>
-
         let myLatLng
         let emer
         let map
@@ -121,7 +103,6 @@
         function initMap() {
           let directionsService = new google.maps.DirectionsService();
           let directionsDisplay = new google.maps.DirectionsRenderer();
-
 
           //// BEGIN INFO FOR ICONS
 
@@ -238,41 +219,33 @@
           let wpid = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
         }
       </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer></script>
-
-    </div><!-- map ends -->
-  </main>
-
-  <!--start footer--->
-  <footer class="page-footer blue-grey darken-4">
-
-    <div class="footer-menu-item">
-      <span style="font-size: 48px; color: #e8e8e8;">
-          <a href="mapDisplay.html"><i class="fas fa-map-marker-alt fa-xs"></i></a>
-      </span>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer>
+      </script>
     </div>
-    <div class="footer-menu-item">
-      <span style="font-size: 48px; color: #e64525;">
-          <i class="fa fa-ambulance fa-xs"></i>
+    <!-- Footer -->
+
+    <!-- Home Icon -->
+    <footer class="page-footer blue-grey darken-4 center-align">
+      <div class="footer-menu-item center-align">
+        <span style="font-size: 48px; color: white;">
+          <a href="index.html"><i class="fa fa-home fa-xs center-align"></i></a>
         </span>
-    </div>
-    <div class="footer-menu-item">
-      <span style="font-size: 48px; color: #e8e8e8;">
-        <a href="messages.html"><i class="fas fa-comment-alt fa-xs"></i></a>
-      </span>
-    </div>
-    <div class="footer-menu-item">
-      <span style="font-size: 48px; color: #e8e8e8;">
-              <i class="fas fa-cog fa-xs"></i>
-            </span>
-    </div>
+      </div>
+      <!-- Ambulance Icon -->
+      <div class="footer-menu-item center-align">
+        <span style="font-size: 48px; color: white;">
+          <a href="messages.html"><i class="fa fa-ambulance fa-xs center-align"></i></a>
+        </span>
+      </div>
+      <!-- Settings/Account Icon -->
+      <div class="footer-menu-item center-align">
+        <span style="font-size: 48px; color: white;">
+          <a href="account.html"><i class="fas fa-cog fa-xs center-align"></i></a>
+        </span>
+      </div>
+    </footer>
 
-  </footer>
-
-  <!--end footer--->
-
-  <!-- <script src="./javascripts/index.js"></script> -->
-
+  <script src="./javascripts/map.js"></script>
+</main>
 </body>
-
 </html>

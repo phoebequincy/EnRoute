@@ -5,8 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
+  <!--Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!--End Favicon  -->
 
-  <title>OnRoute Emergency Vehicle Tracking System</title>
+  <title>EnRoute Emergency Vehicle Tracking System</title>
 
   <!-- materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -22,71 +30,46 @@
   <!--local stylesheet-->
   <link rel="stylesheet" href="./stylesheets/style.css">
 
+  <!--google map api-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer></script>
 </head>
 
 <body>
-  
   <header>
     <!--Materialize Navbar-->
     <nav class="blue-grey darken-4">
       </div>
       <div class="nav-wrapper">
         <span>
-              <img class="logo-png" src="/images/119060.svg">
-            </span>
+          <img class="logo-png" src="/images/119060.svg">
+        </span>
         <a href="index.html" class="brand-logo main-font white-text m-l">EnRoute</a>
-        <a href="index.html" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-        <ul class="right hide-on-med-and-down">
-          <li><a class="grey-text text-darken-5" href="map.html">Map</a></li>
-          <li><a class="grey-text text-darken-5" href="messages.html">Message</a></li>
-          <li><a class="grey-text text-darken-5" href="account.html">Account</a></li>
-        </ul>
-
       </div>
     </nav>
-
-    <!--Materialize Mobile Nav-->
-    <ul class="sidenav" id="mobile-demo">
-      <li><a href="map.html">Map</a></li>
-      <li><a href="messages.html">Message</a></li>
-      <li><a href="account.html">Account</a></li>
-    </ul>
-
   </header>
-
   <main>
   </main>
-
-
-
-
-
-
-  <footer class="page-footer blue-grey darken-4">
-    <div class="footer-menu-item">
+  <!-- Footer -->
+  <!-- Home Icon -->
+  <footer class="page-footer blue-grey darken-4 center-align">
+    <div class="footer-menu-item center-align">
       <span style="font-size: 48px; color: white;">
-          <a href="mapDisplay.html"><i class="fas fa-map-marker-alt fa-xs"></i></a>
+        <a href="index.html"><i class="fa fa-home fa-xs center-align"></i></a>
       </span>
     </div>
-    <div class="footer-menu-item">
-      <span style="font-size: 48px; color: #e64525;">
-          <i class="fa fa-ambulance fa-xs"></i>
-        </span>
-    </div>
-    <div class="footer-menu-item">
+    <!-- Ambulance Icon -->
+    <div class="footer-menu-item center-align">
       <span style="font-size: 48px; color: white;">
-        <a href="messages.html"><i class="fas fa-comment-alt fa-xs"></i></a>
+        <a href="messages.html"><i class="fa fa-ambulance fa-xs center-align"></i></a>
       </span>
     </div>
-    <div class="footer-menu-item">
+    <!-- Settings/Account Icon -->
+    <div class="footer-menu-item center-align">
       <span style="font-size: 48px; color: white;">
-              <i class="fas fa-cog fa-xs"></i>
-            </span>
+        <a href="account.html"><i class="fas fa-cog fa-xs center-align"></i></a>
+      </span>
     </div>
-
   </footer>
 
 </body>
-
 </html>
