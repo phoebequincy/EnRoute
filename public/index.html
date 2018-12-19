@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
   <!--Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
   <!--End Favicon  -->
 
   <title>EnRoute Emergency Vehicle Tracking System</title>
@@ -89,6 +89,7 @@
     </div>
     <!-- log in form ends -->
 
+
     <!-- map begins -->
     <div id="map" class="map">
 
@@ -101,33 +102,34 @@
         let end
         let request
 
-// tuckers code - tues eve
+        // tuckers code - tues eve
         let markers = []
+
         function clearMarkers() {
           setMapOnAll(null);
         }
 
         function showMarkers() {
-            setMapOnAll(map);
-          }
+          setMapOnAll(map);
+        }
 
         function setMapOnAll(map) {
-            for (var i = 0; i < markers.length; i++) {
-              markers[i].setMap(map);
-            }
+          for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
           }
+        }
 
-          function deleteMarkers() {
-            clearMarkers();
-            markers = [];
-          }
-// end tuckers new code
+        function deleteMarkers() {
+          clearMarkers();
+          markers = [];
+        }
+        // end tuckers new code
 
         function initMap() {
           let directionsService = new google.maps.DirectionsService();
-          let directionsDisplay = new google.maps.DirectionsRenderer(
-            {suppressMarkers: true}
-          );
+          let directionsDisplay = new google.maps.DirectionsRenderer({
+            suppressMarkers: true
+          });
 
           //// BEGIN INFO FOR ICONS
           function addFire(coords) {
@@ -137,7 +139,8 @@
               icon: fireIcon
             })
             marker.setMap(map)
-            // markers.push(marker) --commented out for testing on possible conflict.
+            markers.push(marker)
+            // commented out for testing on possible conflict.
           }
 
           function addAmb(coords) {
@@ -195,9 +198,39 @@
               getCoords(userId)
                 .then(results => {
                   document.querySelector('#map').style.visibility = "visible"
+                  document.querySelector('#dvDistance').style.visibility = "visible"
+                  document.querySelector('#dvDistance').style.width = '100%'
+                  document.querySelector('#dvDistance').style.height = '5vh'
+                  document.querySelector('#dvDistance').style.backgroundColor = '#e8e8e8'
                   document.querySelector('#map').style.width = '100%'
-                  document.querySelector('#map').style.height = '70vh'
+                  document.querySelector('#map').style.height = '65vh'
                   document.querySelector('#loginForm').style = "display:none"
+
+
+                  // tuckers code tues night
+                  var service = new google.maps.DistanceMatrixService();
+                  service.getDistanceMatrix({
+                    origins: [myLatLng],
+                    destinations: [emer],
+                    travelMode: google.maps.TravelMode.DRIVING,
+                    unitSystem: google.maps.UnitSystem.IMPERIAL,
+                    avoidHighways: false,
+                    avoidTolls: false
+                  }, function(response, status) {
+                    if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                      var distance = response.rows[0].elements[0].distance.text;
+                      var duration = response.rows[0].elements[0].duration.text;
+                      var dvDistance = document.getElementById("dvDistance");
+                      dvDistance.innerHTML = "";
+                      dvDistance.innerHTML += "Distance: " + distance + "<br />";
+                      dvDistance.innerHTML += "Duration:" + duration;
+
+                    } else {
+                      alert("Unable to find the distance via road.");
+                    }
+                  })
+                  // end tuckers code
+
 
                   myLatLng = {
                     lat: position.coords.latitude,
@@ -212,7 +245,7 @@
                   addFire(emer)
                   addAmb(myLatLng)
 
-// tuckers code tues pm
+                  // tuckers code tues pm
                   function placeAmb(location) {
                     if (!marker || !marker.setPosition) {
                       marker = new google.maps.Marker({
@@ -230,7 +263,6 @@
                     });
                     infowindow.open(map, marker);
                   }
-
                   // end tuckers new code
 
                   start = myLatLng
@@ -247,34 +279,12 @@
                   })
                 })
               return emer
+
+
             })
             // end DOM
-
-// tuckers code tues night
-            var service = new google.maps.DistanceMatrixService();
-            service.getDistanceMatrix({
-              origins: [myLatLng],
-              destinations: [emer],
-              travelMode: google.maps.TravelMode.DRIVING,
-              unitSystem: google.maps.UnitSystem.IMPERIAL,
-              avoidHighways: false,
-              avoidTolls: false
-            }, function(response, status) {
-              if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
-                var distance = response.rows[0].elements[0].distance.text;
-                var duration = response.rows[0].elements[0].duration.text;
-                var dvDistance = document.getElementById("dvDistance");
-                dvDistance.innerHTML = "";
-                dvDistance.innerHTML += "Distance: " + distance + "<br />";
-                dvDistance.innerHTML += "Duration:" + duration;
-
-              } else {
-                alert("Unable to find the distance via road.");
-              }
-            })
-            // end tuckers code
-
-          } // end geo_success function
+          }
+          // end geo_success function
 
           function geo_error() {
             alert("Sorry, no position available.");
@@ -288,7 +298,7 @@
 
           // tuckers code tues night
 
-          setInterval( function (){
+          setInterval(function() {
             deleteMarkers()
             addAmb(myLatLng)
             addFire(emer)
@@ -305,33 +315,40 @@
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLUP4qTMvYe31IOZoo4WIZEYM0Pysj-Fk&callback=initMap" async defer>
       </script>
-      <div id="eta">
-      </div>
+
+
+    </div>
     </div><!-- map ends -->
-    </main>
-    <!-- Footer -->
-    <!-- Home Icon -->
-    <footer class="page-footer blue-grey darken-4 center-align">
-      <div class="footer-menu-item center-align">
-        <span style="font-size: 48px; color: white;">
+
+    <div id="dvDistance">
+      <p>HELLO</p>
+    </div>
+
+  </main>
+  <!-- Footer -->
+  <!-- Home Icon -->
+  <footer class="page-footer blue-grey darken-4 center-align">
+    <div class="footer-menu-item center-align">
+      <span style="font-size: 48px; color: white;">
           <a href="index.html"><i class="fa fa-home fa-xs center-align"></i></a>
         </span>
-      </div>
-      <!-- Ambulance Icon -->
-      <div class="footer-menu-item center-align">
-        <span style="font-size: 48px; color: white;">
+    </div>
+    <!-- Ambulance Icon -->
+    <div class="footer-menu-item center-align">
+      <span style="font-size: 48px; color: white;">
           <a href="messages.html"><i class="fa fa-ambulance fa-xs center-align"></i></a>
         </span>
-      </div>
-      <!-- Settings/Account Icon -->
-      <div class="footer-menu-item center-align">
-        <span style="font-size: 48px; color: white;">
+    </div>
+    <!-- Settings/Account Icon -->
+    <div class="footer-menu-item center-align">
+      <span style="font-size: 48px; color: white;">
           <a href="account.html"><i class="fas fa-cog fa-xs center-align"></i></a>
         </span>
-      </div>
-    </footer>
+    </div>
+  </footer>
 
   <!-- <script src="./javascripts/map.js"></script> -->
 
 </body>
+
 </html>
