@@ -12,7 +12,7 @@ router.post('/group', (req, res, next) => {
     .select('lat','lng')
     .where('group', req.body.userId)
     .then(data => {
-      res.status(200).json(data)
+      res.status(200).json(data[0])
     })
     .catch(err => {
       console.log(err)
