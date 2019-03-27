@@ -4,12 +4,12 @@ https://enroute-g106.herokuapp.com/
 
 
 ### Wireframes
-<a href="/planning-docs/Enroutewireframe.jpg">wireframe-1</a>
-<a href="/planning-docs/EnrouteWireframe.jpg">wireframe-2</a>
+<a href="/planning-docs/EnRoutewireframe.jpg">wireframe-1</a>
+<a href="/planning-docs/EnrouteWireframe.png">wireframe-2</a>
 
 
 ### A style guide
-<a href="/planning-docs/enroute_style_guide.pdf">Style Guide<a.>
+<a href="/planning-docs/enroute_style_guide.pdf">Style Guide</a>
 
 
 ### Planning
